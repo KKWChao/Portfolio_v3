@@ -6,9 +6,9 @@ const Projects = () => {
   const Projects = [
     {
       projectName: "alpha",
-      projectGithub: "alpha.git",
+      projectGithub: "https://www.google.com",
       projectImage: "alpha.src",
-      projectLink: "alpha.com",
+      projectLink: "https://www.google.com",
       projectDescription:
         "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero beatae reprehenderit veritatis suscipit numquam eum modi quasi sunt. Doloremque cum esse quod possimus, voluptatem praesentium maxime neque dicta nesciunt sit?",
     },
@@ -40,11 +40,11 @@ const Projects = () => {
 
   return (
     <section id="projects" className="mx-auto flex h-screen items-center">
-      <div className="mx-auto flex w-full flex-col justify-around gap-10 overflow-x-auto p-10 md:flex-row ">
+      <div className="mx-auto flex w-full flex-col justify-around gap-10 p-10 md:flex-row ">
         {/* want the hover effect to display text over the image */}
-        <motion.div
+        {/* <motion.div
           key=""
-          className=" bg-green-200"
+          className=""
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
@@ -56,34 +56,17 @@ const Projects = () => {
         >
           <h1 className="text-center text-4xl font-bold">dummy</h1>
           <motion.div className="z-0 flex h-full w-full flex-col items-center gap-4">
-            {/* Change image to background */}
-            <motion.img
+            <img
               src=""
               alt=""
-              className="absolute h-[360px] w-[360px] bg-gray-500"
-              initial="hidden"
-              viewport={{ amount: 0.5 }}
-              whileHover="blur"
-              variants={{
-                hidden: { opacity: 0 },
-                visible: { opacity: 1 },
-              }}
+              className="h-[360px] w-[360px] bg-gray-500 hover:blur-sm md:relative"
             />
-            <motion.span
-              className="relative z-10 flex h-[360px] w-[360px] items-center text-xl text-white"
-              initial="hidden"
-              viewport={{ amount: 0.5 }}
-              whileHover="visible"
-              variants={{
-                hidden: { opacity: 0 },
-                visible: { opacity: 1 },
-              }}
-            >
+            <span className="z-10 flex h-[360px] w-[360px] items-center p-2 text-xl text-white opacity-0 transition-all duration-300 ease-in-out hover:opacity-100 md:absolute">
               "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero
               beatae reprehenderit veritatis suscipit numquam eum modi quasi
               sunt. Doloremque cum esse quod possimus, voluptatem praesentium
               maxime neque dicta nesciunt sit?"
-            </motion.span>
+            </span>
             <button
               className="button w-1/2 rounded bg-yellow-400 p-2 duration-200 ease-in-out hover:bg-yellow-700 hover:text-white"
               href=""
@@ -92,12 +75,12 @@ const Projects = () => {
               Dummy
             </button>
           </motion.div>
-        </motion.div>
+        </motion.div> */}
 
         {Projects.map((items, i) => (
           <motion.div
             key={`${items.projectName}_${i}`}
-            className="flex flex-col items-center gap-4 p-4"
+            className="flex flex-col items-center gap-4 p-4 text-DarkBg"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.5 }}
@@ -112,17 +95,32 @@ const Projects = () => {
             <img
               src={items.projectImage}
               alt={items.projectName}
-              className="h-[360px] w-[360px] bg-gray-500"
+              className="h-[360px] w-[360px] bg-MediumBg"
             />
 
             <p className="mx-2 text-xl">{items.projectDescription}</p>
-            <button
-              className="button w-1/2 rounded bg-yellow-400 p-2 duration-200 ease-in-out hover:bg-yellow-700 hover:text-white"
-              href={items.projectGithub}
-              onClick={() => {}}
-            >
-              {items.projectGithub}
-            </button>
+            <div className="flex w-1/3 gap-4">
+              <button
+                className="button rounded bg-Highlight p-2 duration-200 ease-in-out hover:bg-LighterBg"
+                href={items.projectGithub}
+                target="_blank"
+                onClick={() => {}}
+              >
+                <a href={items.projectGithub} target="_blank">
+                  Github
+                </a>
+              </button>
+              <button
+                className="button rounded bg-Highlight p-2 duration-200 ease-in-out hover:bg-LighterBg"
+                href={items.projectLink}
+                target="_blank"
+                onClick={() => {}}
+              >
+                <a href={items.projectLink} target="_blank">
+                  Deployment
+                </a>
+              </button>
+            </div>
           </motion.div>
         ))}
       </div>

@@ -6,13 +6,13 @@ const Navbar = () => {
     { name: "HOME", link: "home" },
     { name: "ABOUT", link: "about" },
     { name: "PROJECTS", link: "projects" },
-    { name: "CONTACT ME", link: "contactme" },
+    { name: "CONTACT ME", link: "contact" },
   ];
 
   return (
     <motion.div
       id="navbar"
-      className="fixed top-0 left-0 z-10 flex w-full justify-between bg-black shadow-md"
+      className="fixed top-0 left-0 z-10 flex w-full justify-between bg-DarkBg shadow-md"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.5 }}
@@ -23,15 +23,15 @@ const Navbar = () => {
       }}
     >
       {/* LEFT SIDE */}
-      <img className="h-[60px] w-[60px] bg-gray-200" src="" alt="" />
+      <img className="h-[60px] w-[60px] bg-MediumBg" src="" alt="" />
       {/* RIGHT SIDE */}
-      <ul className="flex items-center gap-10 px-10 text-primaryBG-100">
+      <ul className="flex items-center gap-10 px-10 text-LighterBg">
         {Links.map((link) => (
           <li
             key={link.name}
-            className="rounded p-3 transition ease-in-out hover:bg-yellow-500 hover:text-gray-400 active:bg-red-500"
+            className="hover:bg-BrightBlue cursor-pointer rounded p-3 transition ease-in-out hover:text-LightBg active:bg-Highlight"
           >
-            <Link to={link.link} spy={true} smooth={true} duration={300}>
+            <Link to={link.link} spy={true} smooth={true} duration={500}>
               {link.name}
             </Link>
           </li>

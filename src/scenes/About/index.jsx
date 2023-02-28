@@ -3,10 +3,13 @@ import { motion } from "framer-motion";
 
 const About = () => {
   return (
-    <section id="about" className="mx-auto flex h-screen items-center">
+    <section
+      id="about"
+      className="mx-auto flex h-screen items-center bg-LightBg"
+    >
       <div className="mx-auto flex justify-center gap-x-32 md:flex-row">
         <motion.div
-          className="flex flex-col gap-4 p-8 md:w-1/3"
+          className="flex flex-col gap-4 p-8 text-DarkBg md:w-1/3"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}

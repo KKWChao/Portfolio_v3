@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
 
 const ContactMe = () => {
-  const inputStyles = `mb-5 w-full rounded-lg px-5 py-3 placeholder-black bg-red-100`;
+  const inputStyles = `mb-5 w-full rounded-lg px-5 py-3 placeholder-black bg-LighterBg border drop-shadow-md text-DarkBg`;
 
   const {
     register,
@@ -19,10 +19,20 @@ const ContactMe = () => {
   };
 
   return (
-    <section id="contactus" className="mx-auto">
-      <motion.div className="flex w-full flex-col items-center justify-center">
+    <section id="contact" className="mx-auto">
+      <motion.div
+        className="flex w-full flex-col items-center justify-center"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.5 }}
+        variants={{
+          hidden: { opacity: 0, y: -50 },
+          visible: { opacity: 1, y: 0 },
+        }}
+      >
         <div className="p-4">
-          <h1 className="text-3xl font-bold">Contact Me</h1>
+          <h1 className="text-3xl font-bold text-DarkBg">Contact Me</h1>
         </div>
         {/* FORM */}
 
@@ -44,7 +54,7 @@ const ContactMe = () => {
               })}
             />
             {errors.name && (
-              <p className="mt-1 text-red-500">
+              <p className="mt-1 text-DarkBg">
                 {errors.name.type === "required" && "This field is required."}
                 {errors.name.type === "maxLength" && "Max length is 100 char."}
               </p>
@@ -60,7 +70,7 @@ const ContactMe = () => {
               })}
             />
             {errors.email && (
-              <p className="text-primary-500 mt-1">
+              <p className="mt-1 text-DarkBg">
                 {errors.email.type === "required" && "This field is required."}
                 {errors.email.type === "pattern" && "Invalid email address."}
               </p>
@@ -78,7 +88,7 @@ const ContactMe = () => {
               })}
             />
             {errors.message && (
-              <p className="text-primary-500 mt-1">
+              <p className="mt-1 text-DarkBg">
                 {errors.message.type === "required" &&
                   "This field is required."}
                 {errors.message.type === "maxLength" &&
