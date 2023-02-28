@@ -6,10 +6,9 @@ import About from "@/scenes/About";
 import ContactMe from "@/scenes/ContactMe";
 import Projects from "@/scenes/Projects";
 import Footer from "@/scenes/Footer";
-
 function App() {
   return (
-    <div className="app scroll-smooth">
+    <div className="app">
       <Navbar />
       <Home />
       <About />

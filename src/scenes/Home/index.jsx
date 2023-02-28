@@ -11,11 +11,14 @@ const Home = () => {
     );
 
   return (
-    <section id="home" className=" mx-auto bg-white">
-      <div className="mt-[60px] flex h-screen items-center justify-center">
-        <div className="justify-center text-black">
-          <AnimatedText wordArray={HeaderText} />
-          <AnimatedText wordArray={SubText} />
+    <section id="home" className="mx-auto mt-[60px] h-screen">
+      <div className="flex h-full items-center justify-center">
+        <div className="text-black">
+          <h1 className="text-4xl font-bold">Hi, I'm Kelvin Chao</h1>
+          <p className="text-xl font-semibold">
+            A Web Developer building websites and applications that lead to
+            success
+          </p>
         </div>
       </div>
     </section>

@@ -1,9 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Canvas } from "@react-three/fiber";
+import { Stars } from "@react-three/drei";
 
 const AnimatedText = ({ wordArray, fontSize }) => {
   return (
-    <motion.div className="flex justify-center overflow-auto">
+    <motion.div className="flex justify-center">
       {wordArray.map((word, i) => (
         <motion.span
           className="px-2"
