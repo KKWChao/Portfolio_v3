@@ -21,7 +21,7 @@ const ContactMe = () => {
   return (
     <section id="contact" className="mx-auto">
       <motion.div
-        className="flex w-full flex-col items-center justify-center"
+        className="mb-10 flex w-full flex-col items-center justify-center md:mb-[20vh]"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.5 }}
@@ -38,6 +38,7 @@ const ContactMe = () => {
 
         <div className="md:w-1/3">
           <form
+            className="flex flex-col items-center"
             target="_blank"
             onSubmit={onSubmit}
             action="https://formsubmit.co/"
@@ -95,6 +96,12 @@ const ContactMe = () => {
                   "Max length is 2000 char."}
               </p>
             )}
+            <button
+              type="submit"
+              className="w-1/3 rounded-lg bg-DarkBg py-3 text-LightBg transition duration-500 hover:bg-Highlight"
+            >
+              SUBMIT
+            </button>
           </form>
         </div>
       </motion.div>

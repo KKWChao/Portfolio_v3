@@ -13,14 +13,14 @@ const Navbar = () => {
     <motion.div
       id="navbar"
       className="fixed top-0 left-0 z-10 flex w-full justify-between bg-DarkBg shadow-md"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.5 }}
-      transition={{ duration: 0.5 }}
-      variants={{
-        hidden: { opacity: 0 },
-        visible: { opacity: 1 },
-      }}
+      // initial="hidden"
+      // whileInView="visible"
+      // viewport={{ once: true, amount: 0.5 }}
+      // transition={{ duration: 0.2 }}
+      // variants={{
+      //   hidden: { opacity: 0.5 },
+      //   visible: { opacity: 1 },
+      // }}
     >
       {/* LEFT SIDE */}
       <img className="h-[60px] w-[60px] bg-MediumBg" src="" alt="" />
