@@ -40,7 +40,7 @@ const Projects = () => {
 
   return (
     <section id="projects" className="mx-auto flex items-center md:h-screen">
-      <div className="flex w-full flex-col justify-around gap-5 p-10 md:flex-row">
+      <div className="flex w-full flex-col justify-around gap-5 overflow-hidden p-10 md:flex-row">
         {Projects.map((items, i) => (
           <motion.div
             className="relative"
@@ -58,6 +58,7 @@ const Projects = () => {
               projectDescription={items.description}
               projectImage={items.image}
               projectLink={items.link}
+              projectGit={items.github}
               dummyKey={i}
             />
           </motion.div>
