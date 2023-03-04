@@ -1,13 +1,16 @@
 import React from "react";
 import { motion } from "framer-motion";
 
+import SphereComponent from "../../components/SphereComponent";
+import BoxComponent from "../../components/Box3js";
+
 const About = () => {
   return (
     <section
       id="about"
-      className="mx-auto flex h-screen items-center bg-LightBg"
+      className="mx-auto flex h-screen items-center justify-center bg-LightBg"
     >
-      <div className="mx-auto flex justify-center gap-x-32 md:flex-row">
+      <div className="mx-auto flex justify-center gap-x-32 md:flex-row ">
         <motion.div
           className="flex flex-col gap-4 p-8 text-DarkBg md:w-1/3"
           initial="hidden"
@@ -31,7 +34,14 @@ const About = () => {
             project or team I work with.
           </p>
         </motion.div>
-        <motion.div
+
+        <div className="h-100% rounded-md bg-black drop-shadow-md md:w-1/3">
+          {/* <BoxComponent /> */}
+        </div>
+
+        {/* 3JS Animations */}
+
+        {/* <motion.div
           className="bg-gray-500 md:w-1/3"
           initial="hidden"
           whileInView="visible"
@@ -43,7 +53,7 @@ const About = () => {
           }}
         >
           DUMMY IMAGE
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

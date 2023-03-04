@@ -1,14 +1,15 @@
 import React from "react";
 import ProjectCard from "./ProjectCard";
+import project1Image from "@/assets/images/Project1.png";
 import { motion } from "framer-motion";
 
 const Projects = () => {
   const Projects = [
     {
-      name: "alpha",
-      github: "https://www.google.com",
-      image: "alpha.src",
-      link: "https://www.google.com",
+      name: "EvoGym",
+      github: "https://github.com/KKWChao/DemoSite",
+      image: project1Image,
+      link: "https://evogym-demo.pages.dev/",
       description:
         "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero beatae reprehenderit veritatis suscipit numquam eum modi quasi sunt. Doloremque cum esse quod possimus, voluptatem praesentium maxime neque dicta nesciunt sit?",
     },
@@ -39,8 +40,11 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="mx-auto flex items-center md:h-screen">
-      <div className="flex w-full flex-col justify-around gap-5 overflow-hidden p-10 md:flex-row">
+    <section
+      id="projects"
+      className="mx-auto flex items-center justify-center md:h-screen"
+    >
+      <div className="mx-10 flex w-full flex-col items-center justify-around gap-10 pt-10 md:flex-row">
         {Projects.map((items, i) => (
           <motion.div
             className="relative"
@@ -52,6 +56,7 @@ const Projects = () => {
               hidden: { opacity: 0, y: -100 },
               visible: { opacity: 1, y: 0 },
             }}
+            key={`${items}_${i}`}
           >
             <ProjectCard
               projectName={items.name}
@@ -59,7 +64,6 @@ const Projects = () => {
               projectImage={items.image}
               projectLink={items.link}
               projectGit={items.github}
-              dummyKey={i}
             />
           </motion.div>
         ))}

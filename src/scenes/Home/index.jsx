@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-import AnimatedText from "@/components/AnimatedText";
+import SphereComponent from "../../components/SphereComponent";
 
 const Home = () => {
   const HeaderText = "Hi, I'm Kelvin Chao".split(" ");
@@ -13,7 +13,7 @@ const Home = () => {
   const initial = { opacity: 0, y: -100 };
   const visible = { opacity: 1, y: 0 };
   return (
-    <section id="home" className="mx-auto mt-[60px] h-screen bg-LighterBg">
+    <section id="home" className="relative mx-auto mt-[60px] h-screen">
       <motion.div
         className="flex h-full flex-col items-center justify-center"
         initial="hidden"
@@ -25,7 +25,7 @@ const Home = () => {
           visible: {},
         }}
       >
-        <div className="flex text-black">
+        <div className="flex text-white">
           {HeaderText.map((words, i) => {
             return (
               <motion.p
@@ -34,17 +34,37 @@ const Home = () => {
                 initial={initial}
                 whileInView={visible}
                 whileHover={{ scale: 1.2 }}
+                key={`${words}_${i}`}
               >
                 {words}
               </motion.p>
             );
           })}
         </div>
-        <p className="text-xl font-semibold">
-          A Web Developer building websites and applications that lead to
-          success
-        </p>
+        <div className="flex text-white">
+          {SubText.map((words, i) => {
+            return (
+              <motion.p
+                className="mx-1 text-xl"
+                transition={{
+                  type: "inertial",
+                  bounce: 0.75,
+                  delay: 0.1 * (2 + i),
+                }}
+                initial={initial}
+                whileInView={visible}
+                whileHover={{ scale: 1.2 }}
+                key={`${words}_${i}`}
+              >
+                {words}
+              </motion.p>
+            );
+          })}
+        </div>
       </motion.div>
+      <div className="absolute top-0 z-[-10] h-full w-full bg-black">
+        <SphereComponent />
+      </div>
     </section>
   );
 };
