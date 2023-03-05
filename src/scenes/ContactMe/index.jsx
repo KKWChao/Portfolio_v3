@@ -98,7 +98,8 @@ const ContactMe = () => {
             )}
             <button
               type="submit"
-              className="w-1/3 rounded-lg bg-DarkBg py-3 text-LightBg transition duration-500 hover:bg-Highlight"
+              className="button w-1/3 rounded-lg border-4 border-MediumBg border-opacity-20 bg-LightBg 
+              py-3 text-xl font-bold text-DarkBg  shadow-lg transition duration-200 ease-in-out hover:bg-MediumBg hover:shadow-2xl active:bg-Highlight"
             >
               SUBMIT
             </button>

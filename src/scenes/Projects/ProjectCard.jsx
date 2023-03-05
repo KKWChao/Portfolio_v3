@@ -62,7 +62,7 @@ const ProjectCard = (props, i) => {
         <img
           src={props.projectImage}
           alt={props.projectName}
-          className="max-h-[320px] overflow-hidden"
+          className="max-h-[320px] w-full "
         />
       </div>
       <div className="mt-4 w-full gap-4 p-4">
@@ -72,9 +72,9 @@ const ProjectCard = (props, i) => {
         <span className="top-14 h-full w-full text-sm md:text-xl">
           {props.projectDescription}
         </span>
-        <div className="m-4 flex justify-around font-semibold">
+        <div className="m-4 flex justify-around font-semibold text-DarkBg">
           <button
-            className="button w-1/4 rounded border border-black border-opacity-20 bg-Highlight py-3 shadow-lg duration-200 ease-in-out hover:bg-LightBg hover:shadow-2xl"
+            className="button w-1/4 rounded border-2 border-MediumBg border-opacity-20 bg-LightBg py-3 shadow-lg duration-200 ease-in-out hover:bg-MediumBg hover:shadow-2xl active:bg-Highlight"
             href={props.projectLink}
             target="_blank"
             onClick={() => {}}
@@ -84,12 +84,12 @@ const ProjectCard = (props, i) => {
             </a>
           </button>
           <button
-            className="button w-1/4 rounded border border-black border-opacity-20 bg-Highlight py-3 shadow-lg duration-200 ease-in-out hover:bg-LightBg hover:shadow-2xl"
+            className="button w-1/4 rounded border-2 border-MediumBg border-opacity-20 bg-LightBg py-3 shadow-lg duration-200 ease-in-out hover:bg-MediumBg hover:shadow-2xl active:bg-Highlight"
             href={props.projectGit}
             target="_blank"
             onClick={() => {}}
           >
-            <a href={props.projectLink} target="_blank">
+            <a href={props.projectGit} target="_blank">
               Github
             </a>
           </button>

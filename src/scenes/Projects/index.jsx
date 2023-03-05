@@ -26,7 +26,7 @@ const Projects = () => {
     },
     {
       name: "Demo Medical Site",
-      github: "charlie.git",
+      github: "https://github.com/KKWChao/DocSite",
       image: project3Image,
       link: "charlie.com",
       description:
