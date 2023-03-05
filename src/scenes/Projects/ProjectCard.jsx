@@ -56,35 +56,35 @@ const ProjectCard = (props, i) => {
       className="flex h-full w-full flex-col items-center justify-center bg-LighterBg shadow-lg"
     >
       <div
-        className="relative inline-block w-full border text-white hover:text-black"
+        className="relative inline-block  w-full border text-white hover:text-black"
         key={props.key}
       >
         <img
           src={props.projectImage}
-          alt="Evogym"
-          className="overflow-hidden"
+          alt={props.projectName}
+          className="max-h-[320px] overflow-hidden"
         />
       </div>
       <div className="mt-4 w-full gap-4 p-4">
-        <h1 className="pb-3 text-4xl font-bold text-DarkBg">
+        <h1 className="pb-3 text-xl font-bold text-DarkBg md:text-4xl">
           {props.projectName.toUpperCase()}
         </h1>
-        <span className="top-14 h-full w-full text-xl">
+        <span className="top-14 h-full w-full text-sm md:text-xl">
           {props.projectDescription}
         </span>
         <div className="m-4 flex justify-around font-semibold">
           <button
-            className="button w-1/3 rounded border border-black border-opacity-20 bg-Highlight py-3 shadow-lg duration-200 ease-in-out hover:bg-LighterBg"
+            className="button w-1/4 rounded border border-black border-opacity-20 bg-Highlight py-3 shadow-lg duration-200 ease-in-out hover:bg-LightBg hover:shadow-2xl"
             href={props.projectLink}
             target="_blank"
             onClick={() => {}}
           >
             <a href={props.projectLink} target="_blank">
-              Deployment
+              Link
             </a>
           </button>
           <button
-            className="button w-1/3 rounded border border-black border-opacity-20 bg-Highlight py-3 shadow-lg duration-200 ease-in-out hover:bg-LighterBg"
+            className="button w-1/4 rounded border border-black border-opacity-20 bg-Highlight py-3 shadow-lg duration-200 ease-in-out hover:bg-LightBg hover:shadow-2xl"
             href={props.projectGit}
             target="_blank"
             onClick={() => {}}

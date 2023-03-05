@@ -33,7 +33,6 @@ const Home = () => {
                 transition={{ type: "inertial", bounce: 0.75, delay: 0.1 * i }}
                 initial={initial}
                 whileInView={visible}
-                whileHover={{ scale: 1.2 }}
                 key={`${words}_${i}`}
               >
                 {words}
@@ -53,7 +52,6 @@ const Home = () => {
                 }}
                 initial={initial}
                 whileInView={visible}
-                whileHover={{ scale: 1.2 }}
                 key={`${words}_${i}`}
               >
                 {words}

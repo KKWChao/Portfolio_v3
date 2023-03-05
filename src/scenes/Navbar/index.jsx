@@ -12,7 +12,7 @@ const Navbar = () => {
   return (
     <motion.div
       id="navbar"
-      className="fixed top-0 left-0 z-10 flex w-full justify-between bg-DarkBg shadow-md"
+      className="fixed left-0 top-0  z-10 flex h-[60px] w-full justify-center bg-DarkBg shadow-md"
       // initial="hidden"
       // whileInView="visible"
       // viewport={{ once: true, amount: 0.5 }}
@@ -23,7 +23,11 @@ const Navbar = () => {
       // }}
     >
       {/* LEFT SIDE */}
-      <img className="h-[60px] w-[60px] bg-MediumBg" src="" alt="" />
+      <img
+        className="fixed left-0 h-[60px] w-[60px] bg-MediumBg"
+        src=""
+        alt=""
+      />
       {/* RIGHT SIDE */}
       <ul className="flex items-center gap-10 px-10 text-LighterBg">
         {Links.map((link) => (

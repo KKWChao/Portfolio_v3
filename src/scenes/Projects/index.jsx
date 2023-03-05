@@ -1,6 +1,9 @@
 import React from "react";
 import ProjectCard from "./ProjectCard";
 import project1Image from "@/assets/images/Project1.png";
+import project2Image from "@/assets/images/Project2.png";
+import project3Image from "@/assets/images/Project3.png";
+import project4Image from "@/assets/images/Project4.png";
 import { motion } from "framer-motion";
 
 const Projects = () => {
@@ -14,25 +17,25 @@ const Projects = () => {
         "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero beatae reprehenderit veritatis suscipit numquam eum modi quasi sunt. Doloremque cum esse quod possimus, voluptatem praesentium maxime neque dicta nesciunt sit?",
     },
     {
-      name: "bravo",
-      github: "bravo.git",
-      image: "bravo.src",
-      link: "bravo.com",
+      name: "Youtube Clone",
+      github: "https://github.com/KKWChao/YoutubeClone",
+      image: project2Image,
+      link: "https://632a22c204beb617c6d1078a--meek-marzipan-6344b2.netlify.app/",
       description:
         "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero beatae reprehenderit veritatis suscipit numquam eum modi quasi sunt. Doloremque cum esse quod possimus, voluptatem praesentium maxime neque dicta nesciunt sit?",
     },
     {
-      name: "charlie",
+      name: "Demo Medical Site",
       github: "charlie.git",
-      image: "charlie.src",
+      image: project3Image,
       link: "charlie.com",
       description:
         "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero beatae reprehenderit veritatis suscipit numquam eum modi quasi sunt. Doloremque cum esse quod possimus, voluptatem praesentium maxime neque dicta nesciunt sit?",
     },
     {
-      name: "delta",
+      name: "Social Media Clone",
       github: "delta.git",
-      image: "delta.src",
+      image: project4Image,
       link: "delta.com",
       description:
         "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero beatae reprehenderit veritatis suscipit numquam eum modi quasi sunt. Doloremque cum esse quod possimus, voluptatem praesentium maxime neque dicta nesciunt sit?",
