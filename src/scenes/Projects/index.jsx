@@ -47,7 +47,7 @@ const Projects = () => {
       id="projects"
       className="mx-auto flex items-center justify-center md:h-screen"
     >
-      <div className="mx-10 flex w-full flex-col items-center justify-around gap-10 pt-10 md:flex-row">
+      <div className="mx-10 flex w-5/6 flex-col items-center justify-around gap-8 md:flex-row">
         {Projects.map((items, i) => (
           <motion.div
             className="relative"

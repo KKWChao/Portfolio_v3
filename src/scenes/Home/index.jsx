@@ -35,7 +35,16 @@ const Home = () => {
                 whileInView={visible}
                 key={`${words}_${i}`}
               >
-                {words}
+                {words === "Kelvin" || words === "Chao" ? (
+                  <span
+                    className="rounded bg-LightBg px-0.5 text-black duration-500 ease-in-out hover:bg-transparent hover:text-white"
+                    on
+                  >
+                    {words}
+                  </span>
+                ) : (
+                  words
+                )}
               </motion.p>
             );
           })}
