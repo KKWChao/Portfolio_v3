@@ -1,36 +1,27 @@
 import { useRef } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { Stars, OrbitControls } from "@react-three/drei";
-
-function Sphere() {
-  const meshRef = useRef(null);
-
-  useFrame(() => {
-    if (!meshRef.current) {
-      return;
-    }
-
-    meshRef.current.rotation.x += 0.0009;
-    meshRef.current.rotation.y += 0.0009;
-  });
-
-  return (
-    <mesh ref={meshRef}>
-      <sphereGeometry args={[3]} />
-      <meshBasicMaterial color="grey" wireframe={true} />
-    </mesh>
-  );
-}
+import { useFrame } from "@react-three/fiber";
 
 const SphereComponent = () => {
-  return (
-    <Canvas>
-      <ambientLight intensity={0.1} />
-      <directionalLight color="red" position={[-10, 4, 5]} />
-      <Stars />
-      <Sphere />
-    </Canvas>
-  );
+  function Sphere() {
+    const meshRef = useRef(null);
+
+    useFrame(() => {
+      if (!meshRef.current) {
+        return;
+      }
+
+      meshRef.current.rotation.x += 0.0009;
+      meshRef.current.rotation.y += 0.0009;
+    });
+
+    return (
+      <mesh ref={meshRef}>
+        <sphereGeometry args={[3]} />
+        <meshBasicMaterial color="grey" wireframe={true} />
+      </mesh>
+    );
+  }
+  return <Sphere />;
 };
 
 export default SphereComponent;

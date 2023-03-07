@@ -13,11 +13,9 @@ module.exports = {
     },
     fontFamily: {
       // add fonts here
-      // dmsans: ["DM Sans", "sans-serif"]
+      notosans: ["Noto Sans", "sans-serif"],
     },
-    backgroundImage: {
-      project1: "url('')",
-    },
+
     screens: {
       xs: "480px",
       sm: "768px",

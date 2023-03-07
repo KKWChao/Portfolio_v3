@@ -1,11 +1,17 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { Canvas } from "@react-three/fiber";
-import { Stars } from "@react-three/drei";
+import notoFont from "../assets/textures/Noto Sans Black_Regular.json";
+import { extend } from "@react-three/fiber";
+import { FontLoader } from "three/examples/jsm/loaders/FontLoader";
+import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry";
+extend({ TextGeometry });
+const AnimatedText = () => {
+  const font = new FontLoader().parse(notoFont);
 
-const AnimatedText = ({ wordArray }) => {
-  /* UNUSED */
-  return <div></div>;
+  return (
+    <mesh position={[-2, 0, 0]}>
+      <textGeometry args={["greener", { font, size: 2, height: 0.2 }]} />
+      <meshPhysicalMaterial attach="material" color={"white"} />
+    </mesh>
+  );
 };
 
 export default AnimatedText;

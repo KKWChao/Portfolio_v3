@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { Canvas } from "@react-three/fiber";
+import { Stars } from "@react-three/drei";
 
 import SphereComponent from "../../components/SphereComponent";
 
@@ -67,7 +69,11 @@ const Home = () => {
         </div>
       </motion.div>
       <div className="absolute top-0 z-[-10] h-full w-full bg-black">
-        <SphereComponent />
+        <Canvas>
+          <ambientLight />
+          <Stars />
+          <SphereComponent />
+        </Canvas>
       </div>
     </section>
   );

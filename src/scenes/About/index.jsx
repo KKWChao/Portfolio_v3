@@ -1,9 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-import SphereComponent from "../../components/SphereComponent";
-import BoxComponent from "../../components/Box3js";
-
 const About = () => {
   return (
     <section
@@ -55,10 +52,6 @@ const About = () => {
         >
           DUMMY IMAGE
         </motion.div> */}
-        </div>
-        {/* Tech */}
-        <div>
-          <h1>Technology</h1>
         </div>
       </div>
     </section>

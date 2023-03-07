@@ -6,6 +6,7 @@ import About from "@/scenes/About";
 import ContactMe from "@/scenes/ContactMe";
 import Projects from "@/scenes/Projects";
 import Footer from "@/scenes/Footer";
+import Technologies from "@/scenes/Technologies";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Navbar />
       <Home />
       <About />
+      <Technologies />
       <Projects />
       <ContactMe />
       <Footer />
