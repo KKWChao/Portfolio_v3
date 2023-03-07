@@ -29,7 +29,6 @@ const SphereComponent = () => {
       <directionalLight color="red" position={[-10, 4, 5]} />
       <Stars />
       <Sphere />
-      {/* <OrbitControls /> */}
     </Canvas>
   );
 };

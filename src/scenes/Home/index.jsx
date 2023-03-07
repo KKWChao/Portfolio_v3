@@ -36,10 +36,7 @@ const Home = () => {
                 key={`${words}_${i}`}
               >
                 {words === "Kelvin" || words === "Chao" ? (
-                  <span
-                    className="rounded bg-LightBg px-0.5 text-black duration-500 ease-in-out hover:bg-transparent hover:text-white"
-                    on
-                  >
+                  <span className="rounded bg-LightBg px-0.5 text-black duration-500 ease-in-out hover:bg-transparent hover:text-white">
                     {words}
                   </span>
                 ) : (
