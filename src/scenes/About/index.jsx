@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import Box3js from "../../components/Box3js";
 
 const About = () => {
   return (
@@ -8,9 +9,9 @@ const About = () => {
       className="mx-auto flex h-screen items-center justify-center bg-LightBg"
     >
       <div className="flex flex-col items-center gap-8">
-        <div className="mx-auto flex justify-center gap-x-32 md:flex-row ">
+        <div className="mx-auto flex justify-center gap-x-32 md:flex-row">
           <motion.div
-            className="flex flex-col gap-4 p-8 text-DarkBg md:w-1/3"
+            className="flex flex-col gap-4 p-8 py-10 text-DarkBg md:w-1/3"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.5 }}
@@ -33,25 +34,9 @@ const About = () => {
             </p>
           </motion.div>
 
-          <div className="h-100% rounded-md bg-black drop-shadow-md md:w-1/3">
-            {/* <BoxComponent /> */}
+          <div className="h-100% rounded-md md:w-1/3">
+            <Box3js />
           </div>
-
-          {/* 3JS Animations */}
-
-          {/* <motion.div
-          className="bg-gray-500 md:w-1/3"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.5 }}
-          variants={{
-            hidden: { opacity: 0, x: 100 },
-            visible: { opacity: 1, x: 0 },
-          }}
-        >
-          DUMMY IMAGE
-        </motion.div> */}
         </div>
       </div>
     </section>

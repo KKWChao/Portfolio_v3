@@ -3,75 +3,96 @@ import { Canvas } from "@react-three/fiber";
 import AnimatedText from "../../components/AnimatedText";
 import { OrbitControls } from "@react-three/drei";
 
+import { FaHtml5, FaCss3Alt, FaBootstrap, FaNodeJs } from "react-icons/fa";
+import { RiReactjsFill } from "react-icons/ri";
+import {
+  SiTailwindcss,
+  SiMongodb,
+  SiGraphql,
+  SiJavascript,
+  SiJquery,
+  SiExpress,
+} from "react-icons/si";
+import { DiMysql } from "react-icons/di";
+
+const iconStyle =
+  "icon fill-DarkBg duration-300 ease-in-out hover:scale-150 hover:fill-Highlight";
+
+const iconSize = "5em";
+
 const skillsList = [
   {
-    skill: "HTML/CSS",
-    icon: "",
+    skill: "HTML",
+    icon: <FaHtml5 size={iconSize} className={iconStyle} />,
+  },
+  {
+    skill: "CSS",
+    icon: <FaCss3Alt size={iconSize} className={iconStyle} />,
+  },
+  {
+    skill: "JavaScript",
+    icon: <SiJavascript size={iconSize} className={iconStyle} />,
   },
   {
     skill: "React",
-    icon: "",
+    icon: <RiReactjsFill size={iconSize} className={iconStyle} />,
   },
   {
     skill: "BootStrap",
-    icon: "",
+    icon: <FaBootstrap size={iconSize} className={iconStyle} />,
   },
   {
     skill: "TailwindCss",
-    icon: "",
+    icon: <SiTailwindcss size={iconSize} className={iconStyle} />,
   },
   {
     skill: "Express",
-    icon: "",
+    icon: <SiExpress size={iconSize} className={iconStyle} />,
   },
   {
     skill: "Node.js",
-    icon: "",
+    icon: <FaNodeJs size={iconSize} className={iconStyle} />,
   },
   {
     skill: "MongoDB",
-    icon: "",
+    icon: <SiMongodb size={iconSize} className={iconStyle} />,
   },
   {
     skill: "MySQL",
-    icon: "",
+    icon: <DiMysql size={iconSize} className={iconStyle} />,
   },
   {
     skill: "GraphQL",
-    icon: "",
+    icon: <SiGraphql size={iconSize} className={iconStyle} />,
   },
   {
     skill: "jQuery",
-    icon: "",
-  },
-  {
-    skill: "Python",
-    icon: "",
-  },
-  {
-    skill: "Git",
-    icon: "",
+    icon: <SiJquery size={iconSize} className={iconStyle} />,
   },
 ];
 
 const Technologies = () => {
   return (
-    <section id="technologies" className="mx-auto h-1/2 w-full bg-LighterBg">
-      <div className=" flex h-full w-full flex-col justify-center">
-        <h1 className="p-4 text-center text-3xl font-bold">Technology</h1>
+    <section id="technologies" className="mx-auto  w-full bg-LighterBg">
+      <div className=" flex h-full w-full flex-col justify-center py-10">
+        <h1 className="p-4 text-center text-3xl font-bold">Technologies</h1>
         {/* WILL ADD THREE FIBER ANIMATIONS */}
         <div className="text-center">
-          <ul className="grid grid-flow-col grid-rows-4 gap-4">
-            {skillsList.map((items) => (
-              <li className="text-black">{items.skill}</li>
+          <div className="flex w-full justify-between gap-8">
+            {skillsList.map((items, i) => (
+              <div
+                className="flex flex-col items-center p-2"
+                key={`${items.skill}_${i}`}
+              >
+                <a href="" className="h-full w-fit">
+                  {items.icon}
+                </a>
+                <p>{items.skill}</p>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
-        <div className="">
-          <Canvas>
-            <AnimatedText />
-          </Canvas>
-        </div>
+        <div className=""></div>
       </div>
     </section>
   );

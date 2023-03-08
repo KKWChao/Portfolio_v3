@@ -15,7 +15,6 @@ module.exports = {
       // add fonts here
       notosans: ["Noto Sans", "sans-serif"],
     },
-
     screens: {
       xs: "480px",
       sm: "768px",

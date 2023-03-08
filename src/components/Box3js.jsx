@@ -1,36 +1,89 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Stars } from "@react-three/drei";
+import {
+  RenderTexture,
+  OrbitControls,
+  PerspectiveCamera,
+  Text,
+  ContactShadows,
+} from "@react-three/drei";
 
-function Box() {
-  const meshRef = useRef(null);
-
-  useFrame(() => {
-    if (!meshRef.current) {
-      return;
-    }
-
-    meshRef.current.rotation.x += 0.01;
-    meshRef.current.rotation.y += 0.01;
-  });
-
+export default function App() {
   return (
-    <mesh ref={meshRef}>
-      <boxGeometry args={[3, 3, 3]} />
-      <meshStandardMaterial color="green" />
+    <Canvas camera={{ position: [5, 5, 5], fov: 25 }}>
+      <ambientLight intensity={0.5} />
+      <directionalLight position={[10, 10, 5]} />
+      <Cube />
+      <ContactShadows
+        frames={1}
+        position={[0, -0.5, 0]}
+        blur={1}
+        opacity={0.75}
+      />
+      <ContactShadows
+        frames={1}
+        position={[0, -0.5, 0]}
+        blur={3}
+        color="orange"
+      />
+      <OrbitControls minPolarAngle={0} maxPolarAngle={Math.PI / 2.1} />
+    </Canvas>
+  );
+}
+
+function Cube() {
+  const [hovered, hover] = useState(false);
+  const [clicked, click] = useState(false);
+  const textRef = useRef();
+  useFrame(
+    (state) => null
+    // replace null for movement
+    // (textRef.current.position.x = Math.sin(state.clock.elapsedTime) * 1)
+  );
+  return (
+    <mesh
+      onClick={() => click(!clicked)}
+      onPointerOver={() => hover(true)}
+      onPointerOut={() => hover(false)}
+    >
+      <boxGeometry />
+      <meshStandardMaterial>
+        <RenderTexture attach="map" anisotropy={16}>
+          <PerspectiveCamera
+            makeDefault
+            manual
+            aspect={1 / 1}
+            position={[0, 0, 6]}
+          />
+          <color attach="background" args={hovered ? ["white"] : ["orange"]} />
+          <ambientLight intensity={0.5} />
+          <directionalLight position={[10, 10, 5]} />
+          <Text ref={textRef} fontSize={4} color={"black"}>
+            ?
+          </Text>
+        </RenderTexture>
+      </meshStandardMaterial>
     </mesh>
   );
 }
 
-const BoxComponent = () => {
+function Dodecahedron(props) {
+  const meshRef = useRef();
+  const [hovered, hover] = useState(false);
+  const [clicked, click] = useState(false);
+  useFrame(() => (meshRef.current.rotation.x += 0.01));
   return (
-    <Canvas>
-      <ambientLight intensity={0.1} />
-      <directionalLight color="white" position={[-10, 4, 5]} />
-      <Stars />
-      <Box />
-    </Canvas>
+    <group {...props}>
+      <mesh
+        ref={meshRef}
+        scale={clicked ? 1.5 : 1}
+        onClick={() => click(!clicked)}
+        onPointerOver={() => hover(true)}
+        onPointerOut={() => hover(false)}
+      >
+        <dodecahedronGeometry args={[0.75]} />
+        <meshStandardMaterial color={hovered ? "hotpink" : "#5de4c7"} />
+      </mesh>
+    </group>
   );
-};
-
-export default BoxComponent;
+}
