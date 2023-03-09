@@ -6,9 +6,9 @@ const About = () => {
   return (
     <section
       id="about"
-      className="mx-auto flex h-screen items-center justify-center bg-LightBg"
+      className="mx-auto flex h-2/3 items-center justify-center bg-LightBg"
     >
-      <div className="flex flex-col items-center gap-8">
+      <div className="items-center gap-8">
         <div className="mx-auto flex justify-center gap-x-32 md:flex-row">
           <motion.div
             className="flex flex-col gap-4 p-8 py-10 text-DarkBg md:w-1/3"
@@ -34,9 +34,12 @@ const About = () => {
             </p>
           </motion.div>
 
-          <div className="h-100% rounded-md md:w-1/3">
+          {/* <div className="h-100% rounded-md md:w-1/3">
             <Box3js />
-          </div>
+          </div> */}
+        </div>
+        <div className="h-fit md:w-full">
+          <Box3js />
         </div>
       </div>
     </section>

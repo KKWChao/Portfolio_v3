@@ -73,8 +73,11 @@ const skillsList = [
 
 const Technologies = () => {
   return (
-    <section id="technologies" className="mx-auto  w-full bg-LighterBg">
-      <div className=" flex h-full w-full flex-col justify-center py-10">
+    <section
+      id="technologies"
+      className="mx-auto flex h-1/2 w-full justify-center bg-LighterBg"
+    >
+      <div className="flex w-5/6 flex-col items-center justify-center py-10">
         <h1 className="p-4 text-center text-3xl font-bold">Technologies</h1>
         {/* WILL ADD THREE FIBER ANIMATIONS */}
         <div className="text-center">
