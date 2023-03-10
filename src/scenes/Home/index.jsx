@@ -1,16 +1,13 @@
 import { motion } from "framer-motion";
 import { Canvas } from "@react-three/fiber";
-import { Stars } from "@react-three/drei";
+import { Stars, OrbitControls } from "@react-three/drei";
 
 import SphereComponent from "../../components/SphereComponent";
 
 const Home = () => {
   const HeaderText = "Hi, I'm Kelvin Chao".split(" ");
 
-  const SubText =
-    "A Web Developer building websites and applications that lead to success".split(
-      " "
-    );
+  const SubText = "Web Developer".split(" ");
 
   const initial = { opacity: 0, y: -100 };
   const visible = { opacity: 1, y: 0 };
@@ -71,8 +68,22 @@ const Home = () => {
       <div className="absolute top-0 z-[-10] h-full w-full bg-black">
         <Canvas>
           <ambientLight />
-          <Stars />
+          <Stars
+            saturation={1}
+            radius={500}
+            depth={50}
+            count={1000}
+            factor={20}
+          />
+
           <SphereComponent />
+          <OrbitControls
+            autoRotate
+            enablePan={false}
+            enableZoom={false}
+            maxPolarAngle={Math.PI / 2}
+            minPolarAngle={Math.PI / 2}
+          />
         </Canvas>
       </div>
     </section>

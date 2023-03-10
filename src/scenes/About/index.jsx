@@ -33,13 +33,6 @@ const About = () => {
               technology and analytics to any project or team I work with.
             </p>
           </motion.div>
-
-          {/* <div className="h-100% rounded-md md:w-1/3">
-            <Box3js />
-          </div> */}
-        </div>
-        <div className="h-fit md:w-full">
-          <Box3js />
         </div>
       </div>
     </section>
