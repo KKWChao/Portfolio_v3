@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
 
 const ContactMe = () => {
-  const inputStyles = `mb-5 w-full rounded-lg px-5 py-3 placeholder-black bg-LighterBg border drop-shadow-md text-DarkBg`;
+  const inputStyles = `mb-5 w-full rounded-lg px-5 py-3 placeholder-mono-400 bg-LighterBg border drop-shadow-md text-mono-700`;
 
   const {
     register,
@@ -19,9 +19,9 @@ const ContactMe = () => {
   };
 
   return (
-    <section id="contact" className="mx-auto">
+    <section id="contact" className="mx-auto h-5/6 w-full bg-mono-700 ">
       <motion.div
-        className="mb-10 flex w-full flex-col items-center justify-center md:mb-[20vh]"
+        className="mb-10 flex h-full w-full flex-col items-center justify-center md:mb-[20vh]"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.5 }}
@@ -31,8 +31,8 @@ const ContactMe = () => {
           visible: { opacity: 1, y: 0 },
         }}
       >
-        <div className="p-4">
-          <h1 className="text-3xl font-bold text-DarkBg">Contact Me</h1>
+        <div className="m-4 rounded-md bg-secondary-300 p-4">
+          <h1 className="text-3xl font-bold text-mono-200">Contact Me</h1>
         </div>
         {/* FORM */}
 
@@ -41,6 +41,7 @@ const ContactMe = () => {
             className="flex flex-col items-center"
             target="_blank"
             onSubmit={onSubmit}
+            // add my link from from submit
             action="https://formsubmit.co/"
             method="POST"
           >
@@ -55,7 +56,7 @@ const ContactMe = () => {
               })}
             />
             {errors.name && (
-              <p className="mt-1 text-DarkBg">
+              <p className="mt-1 text-tertiaryOrange-300">
                 {errors.name.type === "required" && "This field is required."}
                 {errors.name.type === "maxLength" && "Max length is 100 char."}
               </p>
@@ -71,7 +72,7 @@ const ContactMe = () => {
               })}
             />
             {errors.email && (
-              <p className="mt-1 text-DarkBg">
+              <p className="mt-1 text-tertiaryOrange-300">
                 {errors.email.type === "required" && "This field is required."}
                 {errors.email.type === "pattern" && "Invalid email address."}
               </p>
@@ -89,7 +90,7 @@ const ContactMe = () => {
               })}
             />
             {errors.message && (
-              <p className="mt-1 text-DarkBg">
+              <p className="mt-1 text-tertiaryOrange-300">
                 {errors.message.type === "required" &&
                   "This field is required."}
                 {errors.message.type === "maxLength" &&
@@ -98,8 +99,8 @@ const ContactMe = () => {
             )}
             <button
               type="submit"
-              className="button w-1/3 rounded-lg border-4 border-MediumBg border-opacity-20 bg-LightBg 
-              py-3 text-xl font-bold text-DarkBg  shadow-lg transition duration-200 ease-in-out hover:bg-MediumBg hover:shadow-2xl active:bg-Highlight"
+              className="button w-1/3 rounded-lg border-4 border-primary-200 border-opacity-20 bg-primary-300 
+              py-3 text-xl font-bold text-mono-800  shadow-lg transition duration-200 ease-in-out hover:bg-primary-400 hover:shadow-2xl active:bg-secondary-400"
             >
               SUBMIT
             </button>

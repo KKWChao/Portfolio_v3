@@ -77,15 +77,15 @@ const Technologies = () => {
   return (
     <section
       id="technologies"
-      className="mx-auto flex h-full w-full justify-center bg-LighterBg"
+      className="mx-auto flex h-full w-full justify-center bg-mono-700 text-mono-200"
     >
       <div className="flex w-5/6 flex-col items-center justify-center py-10">
         <h1 className="p-4 text-center text-3xl font-bold">Technologies</h1>
         {/* MOBILE WILL HAVE SIMPLE AND DESKTOP WILL HAVE 3D */}
 
         {/* WILL ADD THREE FIBER ANIMATIONS */}
-        {/* <div className="text-center">
-          <div className="flex w-full justify-between gap-8">
+        <div className="text-center">
+          <div className="flex w-full justify-between gap-8 bg-secondary-300">
             {skillsList.map((items, i) => (
               <div
                 className="flex flex-col items-center p-2"
@@ -98,9 +98,9 @@ const Technologies = () => {
               </div>
             ))}
           </div>
-        </div> */}
-        <div className="h-5/6 w-full">
-          <Box3js />
+          <div className="h-5/6 w-full">
+            <Box3js />
+          </div>
         </div>
       </div>
     </section>

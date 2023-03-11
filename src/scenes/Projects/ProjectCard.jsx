@@ -1,57 +1,45 @@
 import React from "react";
-import ButtonStyled from "../../components/ButtonStyled";
 
 // WIP
 const ProjectCard = (props, i) => {
   const buttonStyle =
-    "button w-1/4 rounded border-2 border-MediumBg border-opacity-20 bg-LightBg py-3 shadow-lg duration-200 ease-in-out hover:bg-MediumBg hover:shadow-2xl active:bg-Highlight";
+    "button w-2/3 py-3 rounded border-2 border-primary-300 border-opacity-20 bg-primary-100 shadow-lg duration-200 ease-in-out hover:bg-primary-200 hover:shadow-2xl active:bg-secondary-300 mt-2 text-mono-700 font-semibold";
   /* CAROUSEL */
   // const [Carousel, setCarousel] = useState(false);
   return (
     /* V2 Card */
     <div
       key={`${props.projectName}_${i}`}
-      className="flex h-full flex-col rounded-lg border bg-LighterBg shadow-lg duration-300 ease-in-out hover:shadow-2xl"
+      className="flex h-full flex-col rounded-xl border border-mono-800 bg-mono-200 shadow-lg duration-300 ease-in-out hover:shadow-2xl"
     >
       <div
-        className="relative inline-block  w-full border text-white hover:text-black"
+        className="relative inline-block w-full text-mono-200 hover:text-mono-800"
         key={props.key}
       >
         <img
           src={props.projectImage}
           alt={props.projectName}
-          className="max-h-[360px] w-full"
+          className="max-h-[360px] w-full rounded-t-lg"
         />
       </div>
-      <div className="gap-4 p-4">
-        <h1 className=" text-xl font-bold text-DarkBg md:text-2xl">
+      <div className="flex flex-col items-center gap-4 py-10 px-5">
+        <a
+          className=" text-xl font-bold text-mono-800 md:text-2xl"
+          href={props.projectLink}
+          target="_blank"
+        >
           {props.projectName.toUpperCase()}
-        </h1>
-        <p className="top-14 h-full w-full text-sm md:text-xl">
-          {props.projectDescription}
-        </p>
-        <div className="m-4 flex justify-around font-semibold text-DarkBg">
-          <button
-            className={`${buttonStyle}`}
-            href={props.projectLink}
-            target="_blank"
-            onClick={() => {}}
-          >
-            <a href={props.projectLink} target="_blank">
-              Link
-            </a>
-          </button>
-          <button
-            className={`${buttonStyle}`}
-            href={props.projectGit}
-            target="_blank"
-            onClick={() => {}}
-          >
-            <a href={props.projectGit} target="_blank">
-              Github
-            </a>
-          </button>
-        </div>
+        </a>
+
+        <p className="w-full text-sm md:text-xl">{props.projectDescription}</p>
+        <button
+          className={`${buttonStyle}`}
+          href={props.projectGit}
+          target="_blank"
+          onClick={() => {}}
+        >
+          Github
+        </button>
       </div>
     </div>
   );

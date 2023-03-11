@@ -45,31 +45,34 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="mx-auto flex items-center justify-center md:py-20"
+      className="mx-auto flex flex-col items-center justify-center bg-mono-700"
     >
-      <div className="mx-10 flex w-5/6 flex-col items-center justify-around gap-8 md:flex-row">
-        {Projects.map((items, i) => (
-          <motion.div
-            className="relative"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.5 * (1 + i) }}
-            variants={{
-              hidden: { opacity: 0, y: -100 },
-              visible: { opacity: 1, y: 0 },
-            }}
-            key={`${items}_${i}`}
-          >
-            <ProjectCard
-              projectName={items.name}
-              projectDescription={items.description}
-              projectImage={items.image}
-              projectLink={items.link}
-              projectGit={items.github}
-            />
-          </motion.div>
-        ))}
+      <h1 className="text-4xl font-bold text-mono-200 md:py-20">Projects</h1>
+      <div className="w-5/6">
+        <div className="flex flex-col justify-around gap-8 md:flex-row">
+          {Projects.map((items, i) => (
+            <motion.div
+              className="relative"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.5 * (1 + i) }}
+              variants={{
+                hidden: { opacity: 0, y: -100 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              key={`${items}_${i}`}
+            >
+              <ProjectCard
+                projectName={items.name}
+                projectDescription={items.description}
+                projectImage={items.image}
+                projectLink={items.link}
+                projectGit={items.github}
+              />
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

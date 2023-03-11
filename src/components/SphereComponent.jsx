@@ -24,11 +24,11 @@ const SphereComponent = () => {
         </mesh>
         <mesh>
           <sphereGeometry args={[5]} />
-          <meshPhongMaterial color="red" />
+          <meshPhongMaterial color={0xbb4430} emissive={0xbb4430} />
         </mesh>
         <mesh position={[8, 4, -8]}>
           <sphereGeometry args={[2]} />
-          <meshBasicMaterial color="white" />
+          <meshLambertMaterial color={0x58a7af} emissive={0x58a7af} />
           {/* <OrbitControls target={(0, 0, 0)} /> */}
         </mesh>
       </group>

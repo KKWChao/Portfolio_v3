@@ -9,6 +9,7 @@ import Footer from "@/scenes/Footer";
 import Technologies from "@/scenes/Technologies";
 
 function App() {
+  const [page, setPage] = useState("home");
   return (
     <div className="app">
       <Navbar />

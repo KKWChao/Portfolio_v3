@@ -12,19 +12,15 @@ const Home = () => {
   const initial = { opacity: 0, y: -100 };
   const visible = { opacity: 1, y: 0 };
   return (
-    <section id="home" className="relative mx-auto mt-[60px] h-screen">
+    <section id="home" className="relative mx-auto h-screen pt-[80px]">
       <motion.div
         className="flex h-full flex-col items-center justify-center"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 0.5 }}
-        variants={{
-          hidden: {},
-          visible: {},
-        }}
       >
-        <div className="flex text-white">
+        <div className="flex text-mono-100">
           {HeaderText.map((words, i) => {
             return (
               <motion.p
@@ -35,7 +31,7 @@ const Home = () => {
                 key={`${words}_${i}`}
               >
                 {words === "Kelvin" || words === "Chao" ? (
-                  <span className="rounded bg-LightBg px-0.5 text-black duration-500 ease-in-out hover:bg-transparent hover:text-white">
+                  <span className="rounded bg-mono-100 px-0.5 text-mono-800 duration-500 ease-in-out hover:bg-transparent hover:text-mono-100">
                     {words}
                   </span>
                 ) : (
@@ -45,7 +41,7 @@ const Home = () => {
             );
           })}
         </div>
-        <div className="flex text-white">
+        <div className="flex text-mono-100">
           {SubText.map((words, i) => {
             return (
               <motion.p
@@ -65,7 +61,7 @@ const Home = () => {
           })}
         </div>
       </motion.div>
-      <div className="absolute top-0 z-[-10] h-full w-full bg-black">
+      <div className="absolute top-0 z-[-10] h-full w-full bg-mono-700">
         <Canvas>
           <ambientLight />
           <Stars

@@ -68,7 +68,6 @@ const Box = (props) => {
       <boxGeometry args={props.size} />
       <meshLambertMaterial
         attach="material"
-        transparent
         map={useLoader(THREE.TextureLoader, props.image)}
         color={hovered ? "grey" : "white"}
       />
@@ -87,7 +86,7 @@ const Box3js = () => {
         position={[0, 0, 100]}
         rotation={[0, 0, 0]} // gotta fix rotations?
       />
-      <ambientLight intensity={0.5} />
+      <ambientLight intensity={1} />
       <directionalLight position={[10, 10, 5]} />
       {/* BOXES */}
       <Box
