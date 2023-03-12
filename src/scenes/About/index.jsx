@@ -1,13 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
-import Box3js from "../../components/Box3js";
 
 // front end color
 const spanStyleTools = "text-secondary-100";
-
 // back end color
 const spanStyleBackend = "text-tertiaryGreen-100";
-
 // tool color
 const spanStyleFrontend = "text-tertiaryOrange-100";
 
@@ -15,7 +12,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="mx-auto flex h-2/3 items-center justify-center bg-mono-700"
+      className="mx-auto flex h-full items-center justify-center bg-mono-700"
     >
       <div className="items-center gap-8">
         <div className="mx-auto flex justify-center gap-x-32 md:flex-row">
@@ -62,11 +59,11 @@ const About = () => {
               <span className={spanStyleTools}>MongoDB</span>.
               <br />
               <br />
-              Finally, I'm committed to staying up-to-date with emerging web
-              technologies and best practices. If you're looking for a talented
-              and dedicated web developer to help bring your vision to life,
-              please don't hesitate to get in touch. I'd love to hear about your
-              project and discuss how I can help make it a success.
+              I'm committed to staying up-to-date with emerging web technologies
+              and best practices. If you're looking for a talented and dedicated
+              web developer to help bring your vision to life, please don't
+              hesitate to get in touch. I'd love to hear about your project and
+              discuss how I can help make it a success.
             </p>
           </motion.div>
         </div>

@@ -32,13 +32,14 @@ const ProjectCard = (props, i) => {
         </a>
 
         <p className="w-full text-sm md:text-xl">{props.projectDescription}</p>
-        <button
-          className={`${buttonStyle}`}
-          href={props.projectGit}
-          target="_blank"
-          onClick={() => {}}
-        >
-          Github
+        <button className={`${buttonStyle}`}>
+          <a
+            className=" text-xl font-bold text-mono-800 md:text-2xl"
+            href={props.projectGit}
+            target="_blank"
+          >
+            Github
+          </a>
         </button>
       </div>
     </div>
