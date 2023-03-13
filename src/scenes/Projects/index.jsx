@@ -47,7 +47,7 @@ const Projects = () => {
       id="projects"
       className="mx-auto flex flex-col items-center justify-center bg-mono-700"
     >
-      <h1 className="text-4xl font-bold text-mono-200 md:py-20">Projects</h1>
+      <h1 className="text-5xl font-bold text-mono-200 md:py-20">Projects</h1>
       <div className="w-5/6">
         <div className="flex flex-col justify-around gap-8 md:flex-row">
           {Projects.map((items, i) => (

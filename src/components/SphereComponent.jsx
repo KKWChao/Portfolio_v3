@@ -1,40 +1,59 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
-import { PerspectiveCamera, OrbitControls } from "@react-three/drei";
+import { PerspectiveCamera } from "@react-three/drei";
 
 //
 
-const OrbitSphere = ({ position, orbitalOffset = 0, orbitalSpeed = 1 }) => {
+const OrbitSphere = ({
+  position = [0, 0, 0],
+  orbitalOffset = 0,
+  orbitalSpeed = 1,
+  orbitDistance = 2,
+}) => {
   const ref = useRef();
   useFrame(() => {
     let date = Date.now() * orbitalSpeed * 0.001 + orbitalOffset;
     ref.current.position.set(
-      Math.cos(date) * 20 + position[0],
-      Math.sin(date) * 20 + position[1],
-      Math.sin(date) * 20 + position[2]
+      Math.cos(date) * (orbitDistance * 10) + position[0],
+      Math.sin(date) * (orbitDistance * 10) + position[1],
+      Math.sin(date) * (orbitDistance * 10) + position[2]
     );
   });
   return (
     <mesh position={position} ref={ref}>
       <sphereGeometry args={[2]} />
-      <meshLambertMaterial color={0x58a7af} emissive={0x58a7af} />
+      <meshPhysicalMaterial
+        color={0x105ee5}
+        emissive={0x0d47ab}
+        clearcoat={1}
+        clearcoatRoughness={0}
+        roughness={2}
+        metalness={0.2}
+      />
     </mesh>
   );
 };
 
-const SunSphere = ({ position }) => {
+const SunSphere = ({ position = [0, 0, 0] }) => {
   return (
     <mesh position={position}>
       <sphereGeometry args={[5]} />
-      <meshPhongMaterial color={0xbb4430} emissive={0xbb4430} />
+      <pointLight intensity={0.5} position={[0, 0, 0]} />
+      <meshPhysicalMaterial
+        color={0xff4d00}
+        emissive={0xff4d00}
+        clearcoat={1}
+        clearcoatRoughness={0.2}
+        roughness={0}
+      />
     </mesh>
   );
 };
 
-const DysonSphere = ({ position }) => {
+const DysonSphere = () => {
   const spinnerRef = useRef();
   useFrame(({ clock }) => {
-    spinnerRef.current.rotation.x = clock.getElapsedTime();
+    spinnerRef.current.rotation.x = clock.getElapsedTime() / 2;
   });
 
   return (
@@ -56,21 +75,11 @@ const DysonSphere = ({ position }) => {
 const SphereComponent = () => {
   return (
     <group>
-      <PerspectiveCamera makeDefault position={[0, 0, 50]} fov={30}>
-        <pointLight intensity={0.5} position={[-10, -25, 10]} />
-        <spotLight
-          castShadow
-          intensity={2.25}
-          angle={0.2}
-          penumbra={1}
-          position={[-25, 20, -15]}
-          shadow-mapSize={[1024, 1024]}
-          shadow-bias={-0.0001}
-        />
-      </PerspectiveCamera>
-      <DysonSphere position={[0, 0, 0]} />
-      <SunSphere position={[0, 0, 0]} />
-      <OrbitSphere position={[0, 0, 0]} />
+      <PerspectiveCamera makeDefault position={[0, 0, 30]} fov={50} />
+      <DysonSphere />
+      <SunSphere />
+      <OrbitSphere />
+      <OrbitSphere orbitalOffset={15} orbitalSpeed={2} />
     </group>
   );
 };

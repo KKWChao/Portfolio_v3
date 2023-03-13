@@ -4,12 +4,6 @@ module.exports = {
     extend: {
       colors: {
         // temp setup
-        DarkBg: "#231F20",
-        MediumBg: "#7EBDC2",
-        LightBg: "#BADCDE",
-        LighterBg: "#EFE6DD",
-        Highlight: "#BB4430",
-        HighlightHover: "#58A7AF",
 
         // background color
         backColor: {

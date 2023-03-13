@@ -1,11 +1,13 @@
 import React from "react";
 
+import profile1 from "@/assets/images/Profile1.jpg";
+
 const Footer = () => {
   return (
     <footer className="bg-mono-800 py-16 text-mono-100">
       <div className="justify-content mx-auto w-5/6 gap-16 md:flex">
         <div className="mt-16 basis-1/2 md:mt-0">
-          <img alt="logo" src="" />
+          <img className="h-[150px]" alt="Me" src={profile1} />
           <p className="my-5">
             Lorem vitae ut augue auctor faucibus eget eget ut libero. Elementum
             purus et arcu massa dictum condimentum. Augue scelerisque iaculis

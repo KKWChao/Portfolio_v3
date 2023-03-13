@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Link } from "react-scroll";
 
+import profile1 from "@/assets/png/001-astronaut-alt.png";
+
 const Navbar = ({ page }) => {
   let Links = [
     { name: "HOME", link: "home" },
@@ -44,11 +46,10 @@ const Navbar = ({ page }) => {
       // }}
     >
       {/* LEFT SIDE */}
-      <img
-        className="fixed left-0 h-[80px] w-[80px] bg-secondary-300"
-        src=""
-        alt=""
-      />
+      <div className="profileImage fixed left-0 inline-block h-[80px] w-[80px] overflow-hidden">
+        <img className="p-4" src={profile1} alt="Me" />
+      </div>
+
       {/* RIGHT SIDE */}
       <ul className="flex items-center gap-10 px-10 text-mono-100">
         {Links.map((link) => (

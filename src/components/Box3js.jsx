@@ -1,7 +1,8 @@
 import { useRef, useState, useEffect } from "react";
 import * as THREE from "three";
-import { Canvas, useFrame, useLoader } from "@react-three/fiber";
+import { useFrame, useLoader } from "@react-three/fiber";
 import { Html, PerspectiveCamera } from "@react-three/drei";
+import { DoubleSide } from "three";
 
 import htmlIcon from "@/assets/textures/icons8-html-5-480.png";
 import cssIcon from "@/assets/textures/icons8-css3-480.png";
@@ -15,7 +16,7 @@ import mongoIcon from "@/assets/textures/MongoDB_Logomark_SlateBlue.png";
 import sqlIcon from "@/assets/textures/mysql.png";
 
 // for box sizing
-const boxSize = [0.6, 0.6, 0.6];
+const boxSize = [1, 1, 1];
 
 // random array for random vector location
 const randomVectorGenerator = (min, max, n = 3) => {
@@ -23,22 +24,6 @@ const randomVectorGenerator = (min, max, n = 3) => {
     Math.floor(Math.random() * (max - min + 1) + min)
   );
 };
-
-// random speed generator
-const randomSpeed = () => {
-  return Math.random() * 2.5 * (Math.round(Math.random()) ? 1 : -1);
-};
-
-// Box focus on mouse effect
-function Rig() {
-  const { camera, mouse } = useThree();
-  const vec = new Vector3();
-
-  return useFrame(() => {
-    camera.position.lerp(vec.set(mouse.x, mouse.y, camera.position.z), 0.05);
-    camera.lookAt(0, 0, 0);
-  });
-}
 
 const Box = (props) => {
   const ref = useRef();
@@ -51,11 +36,11 @@ const Box = (props) => {
   // );
 
   // MOUSE EFFECT
-  useFrame(({ mouse, viewport }) => {
-    const x = (mouse.x * viewport.width) / 2.5;
-    const y = (mouse.y * viewport.height) / 2.5;
-    ref.current.lookAt(x, y, 1);
-  });
+  // useFrame(({ mouse, viewport }) => {
+  //   const x = (mouse.x * viewport.width) / 2.5;
+  //   const y = (mouse.y * viewport.height) / 2.5;
+  //   ref.current.lookAt(x, y, 1);
+  // });
   const [hovered, hover] = useState(false);
 
   return (
@@ -66,12 +51,12 @@ const Box = (props) => {
       scale={clicked ? 1.25 : 1}
       onClick={(event) => click(!clicked)}
       position={props.position}
-      color={hovered ? "grey" : "white"}
+      color={hovered ? "white" : "green"}
     >
       <boxGeometry args={props.size} />
       <meshLambertMaterial
         attach="material"
-        transparent="1"
+        // transparent="1"
         map={useLoader(THREE.TextureLoader, props.image)}
       />
       {/* ADDING TAG TO EACH ITEM FOR LEGIBILITY */}
@@ -95,97 +80,26 @@ const Box3js = () => {
   //   return () => window.removeEventListener("resize", handleResize);
   // }, []);
   return (
-    <Canvas>
-      <PerspectiveCamera
-        makeDefault
-        fov={5}
-        position={[0, 0, 50]}
-        rotation={[0, 0, 0]} // gotta fix rotations?
-      />
-      <ambientLight intensity={1} />
-      <directionalLight position={[10, 10, 5]} />
-      {/* BOXES */}
-      <Box
-        size={boxSize}
-        position={[0.5, 0.5, 0]}
-        image={mongoIcon}
-        speed={randomSpeed()}
-      />
-      <Box
-        size={boxSize}
-        position={[-0.5, -0.5, 0]}
-        image={htmlIcon}
-        speed={randomSpeed()}
-      />
-      <Box
-        size={boxSize}
-        position={[0.5, -0.5, 0]}
-        image={tailwindIcon}
-        speed={randomSpeed()}
-      />
-      <Box
-        size={boxSize}
-        position={[-0.5, 0.5, 0]}
-        image={expressIcon}
-        speed={randomSpeed()}
-      />
-      <Box
-        size={boxSize}
-        position={[1, 1, 0]}
-        image={cssIcon}
-        speed={randomSpeed()}
-      />
-      <Box
-        size={boxSize}
-        position={[0, 0, 0]}
-        image={jsIcon}
-        speed={randomSpeed()}
-      />
-      <Box
-        size={boxSize}
-        position={[-1, 0, 0]}
-        image={nodeIcon}
-        speed={randomSpeed()}
-      />
-      <Box
-        size={boxSize}
-        position={[1, 0, 0]}
-        image={reactIcon}
-        speed={randomSpeed()}
-      />
-      <Box
-        size={boxSize}
-        position={[0, 1, 0]}
-        image={tailwindIcon}
-        speed={randomSpeed()}
-      />
-      <Box
-        size={boxSize}
-        position={[0, -1, 0]}
-        image={bootstrapIcon}
-        speed={randomSpeed()}
-      />
-      <Box
-        size={boxSize}
-        position={[-1, -1, 0]}
-        image={sqlIcon}
-        speed={randomSpeed()}
-      />
+    <group>
+      <mesh rotation={[Math.PI / 2, 0, 0]}>
+        <planeGeometry args={[4, 4]} />
+        <meshBasicMaterial color={"green"} side={DoubleSide} />
+      </mesh>
+      <Box size={boxSize} position={[0, 0.5, 0]} image={htmlIcon} />
+    </group>
 
-      <Box
-        size={boxSize}
-        position={[-1, 1, 0]}
-        image={sqlIcon}
-        speed={randomSpeed()}
-      />
-      <Box
-        size={boxSize}
-        position={[1, -1, 0]}
-        image={sqlIcon}
-        speed={randomSpeed()}
-      />
-      {/* <OrbitControls /> */}
-    </Canvas>
+    // BOXES
+    // <Box size={boxSize} position={[1, 0.5, 0]} image={mongoIcon} />
+
+    // <Box size={boxSize} position={[0.5, -0.5, 0]} image={tailwindIcon} />
+    // <Box size={boxSize} position={[-0.5, 0.5, 0]} image={expressIcon} />
+    // <Box size={boxSize} position={[1, 1, 0]} image={cssIcon} />
+    // <Box size={boxSize} position={[0, 0, 0]} image={jsIcon} />
+    // <Box size={boxSize} position={[-1, 0, 0]} image={nodeIcon} />
+    // <Box size={boxSize} position={[1, 0, 0]} image={reactIcon} />
+    // <Box size={boxSize} position={[0, -1, 0]} image={bootstrapIcon} />
+    // <Box size={boxSize} position={[-1, -1, 0]} image={sqlIcon} />
+    // <OrbitControls />
   );
 };
 

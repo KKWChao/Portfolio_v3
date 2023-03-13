@@ -31,14 +31,14 @@ const ContactMe = () => {
           visible: { opacity: 1, y: 0 },
         }}
       >
-        <div className="m-4 rounded-md bg-secondary-300 p-4">
-          <h1 className="text-3xl font-bold text-mono-200">Contact Me</h1>
+        <div className="m-4 p-4">
+          <h1 className="text-5xl font-bold text-mono-200">Contact Me</h1>
         </div>
         {/* FORM */}
 
         <div className="md:w-1/3">
           <form
-            className="flex flex-col items-center"
+            className="flex flex-col items-center gap-4"
             target="_blank"
             onSubmit={onSubmit}
             // add my link from from submit
@@ -99,8 +99,8 @@ const ContactMe = () => {
             )}
             <button
               type="submit"
-              className="button w-1/3 rounded-lg border-4 border-primary-200 border-opacity-20 bg-primary-300 
-              py-3 text-xl font-bold text-mono-800  shadow-lg transition duration-200 ease-in-out hover:bg-primary-400 hover:shadow-2xl active:bg-secondary-400"
+              className="button w-1/3 rounded-lg border-4 border-primary-200 border-opacity-20 bg-primary-100 
+              py-3 text-xl font-bold text-mono-800  shadow-lg transition duration-200 ease-in-out hover:bg-primary-300 hover:shadow-2xl active:bg-secondary-300"
             >
               SUBMIT
             </button>
